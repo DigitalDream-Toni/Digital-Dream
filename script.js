@@ -20,6 +20,7 @@ if (yearsBuildingEl) {
   yearsBuildingEl.textContent = String(totalYears);
 }
 
+
 window.addEventListener("load", () => {
   if (preloader) {
     preloader.classList.add("hidden");

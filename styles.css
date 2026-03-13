@@ -8,6 +8,7 @@
   --accent: #63f2c6;
   --accent-2: #ff8bd8;
   --shadow: 0 24px 70px rgba(4, 6, 12, 0.45);
+  --bg-glow: #1d2130;
   --radius-lg: 28px;
   --radius-md: 18px;
   --radius-sm: 12px;
@@ -27,7 +28,7 @@ body {
   margin: 0;
   font-family: "Space Grotesk", sans-serif;
   color: var(--ink);
-  background: radial-gradient(circle at top, #1d2130 0%, var(--bg) 60%);
+  background: radial-gradient(circle at top, var(--bg-glow) 0%, var(--bg) 60%);
   min-height: 100vh;
 }
 
@@ -52,7 +53,7 @@ body::before {
   inset: 0;
   display: grid;
   place-items: center;
-  background: radial-gradient(circle at top, #1d2130 0%, var(--bg) 60%);
+  background: radial-gradient(circle at top, var(--bg-glow) 0%, var(--bg) 60%);
   z-index: 999;
   transition: opacity 0.4s ease, visibility 0.4s ease;
 }
@@ -136,6 +137,7 @@ a {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+
 .nav {
   max-width: 1200px;
   margin: 0 auto;
@@ -144,6 +146,12 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .logo {
@@ -195,6 +203,7 @@ a {
   flex-direction: column;
   gap: 6px;
 }
+
 
 .nav-toggle span {
   display: block;
@@ -430,6 +439,71 @@ a {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 22px;
+}
+
+.ceo-section {
+  display: grid;
+  grid-template-columns: minmax(180px, 240px) 1fr;
+  gap: 24px;
+  align-items: center;
+  margin: 12px 0 36px;
+  padding: 24px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(
+    135deg,
+    rgba(20, 24, 35, 0.95),
+    rgba(20, 24, 35, 0.7)
+  );
+  box-shadow: var(--shadow);
+}
+
+.ceo-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 24px;
+  background: linear-gradient(160deg, rgba(99, 242, 198, 0.18), rgba(255, 139, 216, 0.18));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.7rem;
+}
+
+.ceo-details h3 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+  font-family: "Fraunces", serif;
+}
+
+.ceo-details p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.ceo-signature {
+  margin-top: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(99, 242, 198, 0.15);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+@media (max-width: 700px) {
+  .ceo-section {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
 }
 
 .about-card,
