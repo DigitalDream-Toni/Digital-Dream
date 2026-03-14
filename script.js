@@ -69,7 +69,9 @@ if (revealItems.length) {
   revealItems.forEach((item) => revealObserver.observe(item));
 }
 
-if (heroVisual && glassCard && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+const allow3d = window.matchMedia("(min-width: 961px)").matches;
+
+if (heroVisual && glassCard && allow3d && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   heroVisual.addEventListener("mousemove", (event) => {
     const rect = heroVisual.getBoundingClientRect();
     const x = (event.clientX - rect.left) / rect.width - 0.5;
@@ -86,7 +88,7 @@ if (heroVisual && glassCard && !window.matchMedia("(prefers-reduced-motion: redu
   });
 }
 
-if (tiltCards.length && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+if (tiltCards.length && allow3d && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   tiltCards.forEach((card) => {
     card.addEventListener("mousemove", (event) => {
       const rect = card.getBoundingClientRect();

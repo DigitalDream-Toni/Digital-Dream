@@ -821,6 +821,11 @@ a {
     transform: scale(1);
     pointer-events: auto;
   }
+
+  .tilt-card,
+  .hero-visual {
+    transform: none !important;
+  }
 }
 
 @media (max-width: 600px) {
