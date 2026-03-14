@@ -20,7 +20,9 @@ if (yearsBuildingEl) {
 
 window.addEventListener("load", () => {
   if (preloader) {
-    preloader.classList.add("hidden");
+    setTimeout(() => {
+      preloader.classList.add("hidden");
+    }, 700);
   }
   if (welcomeToast) {
     welcomeToast.classList.add("show");
