@@ -2,10 +2,7 @@ const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelector(".nav-links");
 const yearEl = document.getElementById("year");
 const yearsBuildingEl = document.getElementById("years-building");
-const heroVisual = document.querySelector(".hero-visual");
-const glassCard = document.querySelector(".glass-card");
 const preloader = document.getElementById("preloader");
-const tiltCards = document.querySelectorAll(".tilt-card");
 const welcomeToast = document.getElementById("welcome-toast");
 
 if (yearEl) {
@@ -67,42 +64,4 @@ if (revealItems.length) {
   );
 
   revealItems.forEach((item) => revealObserver.observe(item));
-}
-
-const allow3d = window.matchMedia("(min-width: 961px)").matches;
-
-if (heroVisual && glassCard && allow3d && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  heroVisual.addEventListener("mousemove", (event) => {
-    const rect = heroVisual.getBoundingClientRect();
-    const x = (event.clientX - rect.left) / rect.width - 0.5;
-    const y = (event.clientY - rect.top) / rect.height - 0.5;
-    const rotateX = y * -10;
-    const rotateY = x * 10;
-    heroVisual.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    glassCard.style.transform = `translateZ(40px)`;
-  });
-
-  heroVisual.addEventListener("mouseleave", () => {
-    heroVisual.style.transform = "rotateX(0deg) rotateY(0deg)";
-    glassCard.style.transform = "translateZ(0)";
-  });
-}
-
-if (tiltCards.length && allow3d && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  tiltCards.forEach((card) => {
-    card.addEventListener("mousemove", (event) => {
-      const rect = card.getBoundingClientRect();
-      const x = (event.clientX - rect.left) / rect.width - 0.5;
-      const y = (event.clientY - rect.top) / rect.height - 0.5;
-      const rotateX = y * -8;
-      const rotateY = x * 8;
-      card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(6px)`;
-      card.classList.add("is-tilting");
-    });
-
-    card.addEventListener("mouseleave", () => {
-      card.style.transform = "perspective(900px) rotateX(0deg) rotateY(0deg)";
-      card.classList.remove("is-tilting");
-    });
-  });
 }
